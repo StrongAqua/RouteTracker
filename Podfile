@@ -4,6 +4,7 @@
 target 'RouteTracker' do
   # Comment the next line if you don't want to use dynamic frameworks
   pod 'GoogleMaps', '5.0.0'
+  pod 'RealmSwift'
   use_frameworks!
 
   # Pods for RouteTracker

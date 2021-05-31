@@ -18,6 +18,7 @@
 		FEE917A7265FC1220088D628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE917A5265FC1220088D628 /* LaunchScreen.storyboard */; };
 		FEE917B2265FC1220088D628 /* RouteTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE917B1265FC1220088D628 /* RouteTrackerTests.swift */; };
 		FEE917BD265FC1220088D628 /* RouteTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE917BC265FC1220088D628 /* RouteTrackerUITests.swift */; };
+		FEE9181E26650EF20088D628 /* RealmPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9181D26650EF20088D628 /* RealmPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		FEE917B8265FC1220088D628 /* RouteTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE917BC265FC1220088D628 /* RouteTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTrackerUITests.swift; sourceTree = "<group>"; };
 		FEE917BE265FC1220088D628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEE9181D26650EF20088D628 /* RealmPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,13 +141,10 @@
 		FEE91799265FC11F0088D628 /* RouteTracker */ = {
 			isa = PBXGroup;
 			children = (
-				FEE9179A265FC11F0088D628 /* AppDelegate.swift */,
-				FEE9179C265FC11F0088D628 /* SceneDelegate.swift */,
-				FEE9179E265FC11F0088D628 /* MapViewController.swift */,
-				FEE917A0265FC11F0088D628 /* Main.storyboard */,
-				FEE917A3265FC1220088D628 /* Assets.xcassets */,
-				FEE917A5265FC1220088D628 /* LaunchScreen.storyboard */,
-				FEE917A8265FC1220088D628 /* Info.plist */,
+				FEE9180B266508F00088D628 /* App */,
+				FEE91810266509600088D628 /* Core */,
+				FEE918112665096C0088D628 /* Resources */,
+				FEE91812266509960088D628 /* Environments */,
 			);
 			path = RouteTracker;
 			sourceTree = "<group>";
@@ -168,6 +167,82 @@
 			path = RouteTrackerUITests;
 			sourceTree = "<group>";
 		};
+		FEE9180B266508F00088D628 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9179A265FC11F0088D628 /* AppDelegate.swift */,
+				FEE9179C265FC11F0088D628 /* SceneDelegate.swift */,
+				FEE917A0265FC11F0088D628 /* Main.storyboard */,
+				FEE9180C266508FF0088D628 /* BussinessLogic */,
+				FEE9180D2665091F0088D628 /* Entity */,
+				FEE9180E2665092E0088D628 /* Assembly */,
+				FEE9180F2665094C0088D628 /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FEE9180C266508FF0088D628 /* BussinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BussinessLogic;
+			sourceTree = "<group>";
+		};
+		FEE9180D2665091F0088D628 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9181D26650EF20088D628 /* RealmPath.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FEE9180E2665092E0088D628 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FEE9180F2665094C0088D628 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9179E265FC11F0088D628 /* MapViewController.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		FEE91810266509600088D628 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9181926650BF60088D628 /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FEE918112665096C0088D628 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FEE917A3265FC1220088D628 /* Assets.xcassets */,
+				FEE917A5265FC1220088D628 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FEE91812266509960088D628 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				FEE917A8265FC1220088D628 /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		FEE9181926650BF60088D628 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,6 +255,7 @@
 				FEE91794265FC11F0088D628 /* Frameworks */,
 				FEE91795265FC11F0088D628 /* Resources */,
 				1057A26342F57DA6EDAC2062 /* [CP] Copy Pods Resources */,
+				1D190EF3CA9386F4B3499063 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +294,7 @@
 				FEE917B5265FC1220088D628 /* Frameworks */,
 				FEE917B6265FC1220088D628 /* Resources */,
 				8B21BF7E32075E6D0B834E87 /* [CP] Copy Pods Resources */,
+				6249A2248DB5577F2D3B8467 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +393,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1D190EF3CA9386F4B3499063 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3E33AA0D841EA81BADB2C8EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +430,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6249A2248DB5577F2D3B8467 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B21BF7E32075E6D0B834E87 /* [CP] Copy Pods Resources */ = {
@@ -408,6 +519,7 @@
 			files = (
 				FEE9179F265FC11F0088D628 /* MapViewController.swift in Sources */,
 				FEE9179B265FC11F0088D628 /* AppDelegate.swift in Sources */,
+				FEE9181E26650EF20088D628 /* RealmPath.swift in Sources */,
 				FEE9179D265FC11F0088D628 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,7 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RouteTracker/Info.plist;
+				INFOPLIST_FILE = RouteTracker/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,7 +717,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RouteTracker/Info.plist;
+				INFOPLIST_FILE = RouteTracker/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
