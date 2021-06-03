@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0gc-c1-4aK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="jOX-vf-5Lr">
+            <objects>
+                <navigationController id="0gc-c1-4aK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W8y-R1-dkd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="00u-pP-b1I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2XI-Tx-ULg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842" y="98"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Map View Controller" customClass="MapViewController" customModule="RouteTracker" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y4T-Ei-O1l">
+                                <rect key="frame" x="30" y="802" width="354" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqj-lt-oXf">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="60"/>
+                                        <state key="normal" title="Start Track"/>
+                                        <connections>
+                                            <action selector="onTrackingButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SdO-DS-XVk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSm-Jc-Y52">
+                                        <rect key="frame" x="86" y="0.0" width="206" height="60"/>
+                                        <state key="normal" title="Show Track"/>
+                                        <connections>
+                                            <action selector="onLoadPath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qdb-PA-zkJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y5-jz-lDL">
+                                        <rect key="frame" x="302" y="0.0" width="52" height="60"/>
+                                        <state key="normal" title="Current"/>
+                                        <connections>
+                                            <action selector="onCurrentLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehY-oK-xbd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0uF-T1-6fy"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGk-2r-Qwx" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="714"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FGk-2r-Qwx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6ks-bD-ECB"/>
+                            <constraint firstItem="FGk-2r-Qwx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7Ek-dx-Gf8"/>
+                            <constraint firstItem="Y4T-Ei-O1l" firstAttribute="top" secondItem="FGk-2r-Qwx" secondAttribute="bottom" id="JFU-Sl-YMe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y4T-Ei-O1l" secondAttribute="trailing" constant="30" id="KSD-Zv-sF8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y4T-Ei-O1l" secondAttribute="bottom" id="Vyi-6Z-QNm"/>
+                            <constraint firstItem="Y4T-Ei-O1l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="p7Q-Gi-6Wk"/>
+                            <constraint firstItem="FGk-2r-Qwx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="siN-wi-4YP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="lBQ-Yu-Vo1">
+                        <barButtonItem key="leftBarButtonItem" id="77I-7O-wNH"/>
+                        <barButtonItem key="rightBarButtonItem" id="EUG-lf-tI8"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="FGk-2r-Qwx" id="hH0-GG-ZLQ"/>
+                        <outlet property="showPathButton" destination="pSm-Jc-Y52" id="yNs-Pa-WzB"/>
+                        <outlet property="startTrackingButton" destination="oqj-lt-oXf" id="vLL-J6-s2e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.144927536231885" y="98.4375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
