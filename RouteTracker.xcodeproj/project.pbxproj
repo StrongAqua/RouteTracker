@@ -10,8 +10,15 @@
 		59D944D45BCDE19808623779 /* Pods_RouteTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 683AF46FD6D956198E54640A /* Pods_RouteTracker.framework */; };
 		6703F3B88A3E04EB15088C01 /* Pods_RouteTracker_RouteTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42E17F0115F712E97D30A0E /* Pods_RouteTracker_RouteTrackerUITests.framework */; };
 		E3A4FFFFC92C9A7D9C1161B1 /* Pods_RouteTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC6D4967862B8B62525A779 /* Pods_RouteTrackerTests.framework */; };
+		FE0EF98A2667C6CB0039D691 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0EF9892667C6CB0039D691 /* RealmUser.swift */; };
+		FE200CA62667920400182F1A /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE200CA52667920400182F1A /* Auth.storyboard */; };
+		FE200CAE2667956100182F1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CAD2667956100182F1A /* LoginViewController.swift */; };
+		FE200CB32667993000182F1A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CB22667993000182F1A /* RegistrationViewController.swift */; };
+		FE200CBB26679B4A00182F1A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CBA26679B4A00182F1A /* MainViewController.swift */; };
+		FE200CC02667A0C300182F1A /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CBF2667A0C300182F1A /* BaseRouter.swift */; };
+		FE200CC52667A7D900182F1A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CC42667A7D900182F1A /* Helper.swift */; };
+		FED4E3B32668C61D00C252DB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4E3B22668C61D00C252DB /* RealmService.swift */; };
 		FEE9179B265FC11F0088D628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9179A265FC11F0088D628 /* AppDelegate.swift */; };
-		FEE9179D265FC11F0088D628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9179C265FC11F0088D628 /* SceneDelegate.swift */; };
 		FEE9179F265FC11F0088D628 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9179E265FC11F0088D628 /* MapViewController.swift */; };
 		FEE917A2265FC11F0088D628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE917A0265FC11F0088D628 /* Main.storyboard */; };
 		FEE917A4265FC1220088D628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEE917A3265FC1220088D628 /* Assets.xcassets */; };
@@ -48,9 +55,16 @@
 		E42E17F0115F712E97D30A0E /* Pods_RouteTracker_RouteTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteTracker_RouteTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4CFCE82A395ADE514BE4B04 /* Pods-RouteTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-RouteTrackerTests/Pods-RouteTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF31B91D150FB313DF3AC3E3 /* Pods-RouteTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-RouteTrackerTests/Pods-RouteTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0EF9892667C6CB0039D691 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
+		FE200CA52667920400182F1A /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		FE200CAD2667956100182F1A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FE200CB22667993000182F1A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		FE200CBA26679B4A00182F1A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FE200CBF2667A0C300182F1A /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		FE200CC42667A7D900182F1A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		FED4E3B22668C61D00C252DB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FEE91797265FC11F0088D628 /* RouteTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE9179A265FC11F0088D628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FEE9179C265FC11F0088D628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FEE9179E265FC11F0088D628 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FEE917A1265FC11F0088D628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEE917A3265FC1220088D628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +130,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FE200CA3266790D900182F1A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9179E265FC11F0088D628 /* MapViewController.swift */,
+				FE200CBA26679B4A00182F1A /* MainViewController.swift */,
+				FEE917A0265FC11F0088D628 /* Main.storyboard */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		FE200CA4266790EC00182F1A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FE200CAD2667956100182F1A /* LoginViewController.swift */,
+				FE200CA52667920400182F1A /* Auth.storyboard */,
+				FE200CB22667993000182F1A /* RegistrationViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		FEE9178E265FC11F0088D628 = {
 			isa = PBXGroup;
 			children = (
@@ -171,42 +205,28 @@
 			isa = PBXGroup;
 			children = (
 				FEE9179A265FC11F0088D628 /* AppDelegate.swift */,
-				FEE9179C265FC11F0088D628 /* SceneDelegate.swift */,
-				FEE917A0265FC11F0088D628 /* Main.storyboard */,
-				FEE9180C266508FF0088D628 /* BussinessLogic */,
+				FE200CBF2667A0C300182F1A /* BaseRouter.swift */,
+				FE200CC42667A7D900182F1A /* Helper.swift */,
 				FEE9180D2665091F0088D628 /* Entity */,
-				FEE9180E2665092E0088D628 /* Assembly */,
 				FEE9180F2665094C0088D628 /* Flows */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		FEE9180C266508FF0088D628 /* BussinessLogic */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BussinessLogic;
 			sourceTree = "<group>";
 		};
 		FEE9180D2665091F0088D628 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				FEE9181D26650EF20088D628 /* RealmPath.swift */,
+				FE0EF9892667C6CB0039D691 /* RealmUser.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		FEE9180E2665092E0088D628 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		FEE9180F2665094C0088D628 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				FEE9179E265FC11F0088D628 /* MapViewController.swift */,
+				FE200CA4266790EC00182F1A /* Auth */,
+				FE200CA3266790D900182F1A /* Map */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -239,6 +259,7 @@
 		FEE9181926650BF60088D628 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FED4E3B22668C61D00C252DB /* RealmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -353,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE200CA62667920400182F1A /* Auth.storyboard in Resources */,
 				FEE917A7265FC1220088D628 /* LaunchScreen.storyboard in Resources */,
 				FEE917A4265FC1220088D628 /* Assets.xcassets in Resources */,
 				FEE917A2265FC11F0088D628 /* Main.storyboard in Resources */,
@@ -517,10 +539,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE200CBB26679B4A00182F1A /* MainViewController.swift in Sources */,
 				FEE9179F265FC11F0088D628 /* MapViewController.swift in Sources */,
+				FE0EF98A2667C6CB0039D691 /* RealmUser.swift in Sources */,
 				FEE9179B265FC11F0088D628 /* AppDelegate.swift in Sources */,
 				FEE9181E26650EF20088D628 /* RealmPath.swift in Sources */,
-				FEE9179D265FC11F0088D628 /* SceneDelegate.swift in Sources */,
+				FE200CAE2667956100182F1A /* LoginViewController.swift in Sources */,
+				FE200CC52667A7D900182F1A /* Helper.swift in Sources */,
+				FE200CB32667993000182F1A /* RegistrationViewController.swift in Sources */,
+				FED4E3B32668C61D00C252DB /* RealmService.swift in Sources */,
+				FE200CC02667A0C300182F1A /* BaseRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

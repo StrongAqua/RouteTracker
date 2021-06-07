@@ -12,6 +12,8 @@ import RealmSwift
 
 class MapViewController: UIViewController {
     
+    var uselessExampleVariable = ""
+    
     @IBOutlet weak var showPathButton: UIButton!
     @IBOutlet weak var startTrackingButton: UIButton!
     
@@ -48,17 +50,18 @@ class MapViewController: UIViewController {
     }
     
     func configureLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager?.requestAlwaysAuthorization()
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestAlwaysAuthorization()
     }
     
     func showCurrentLocation(position: CLLocationCoordinate2D) {
         let rect = CGRect(x: 0, y: 0, width: 20, height: 20)
         let view = UIView(frame: rect)
+
         view.layer.cornerRadius = 10
         view.backgroundColor = .blue
         
@@ -219,6 +222,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        debugPrint(error)
     }
 }
