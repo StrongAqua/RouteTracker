@@ -17,6 +17,7 @@
 		FE200CBB26679B4A00182F1A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CBA26679B4A00182F1A /* MainViewController.swift */; };
 		FE200CC02667A0C300182F1A /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CBF2667A0C300182F1A /* BaseRouter.swift */; };
 		FE200CC52667A7D900182F1A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200CC42667A7D900182F1A /* Helper.swift */; };
+		FE2FC2582670C97C004DF14A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2FC2572670C97C004DF14A /* LocationManager.swift */; };
 		FED4E3B32668C61D00C252DB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4E3B22668C61D00C252DB /* RealmService.swift */; };
 		FED4E3C4266E18A700C252DB /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4E3C3266E18A700C252DB /* PrivacyProtectionViewController.swift */; };
 		FEE9179B265FC11F0088D628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9179A265FC11F0088D628 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		FE200CBA26679B4A00182F1A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FE200CBF2667A0C300182F1A /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		FE200CC42667A7D900182F1A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		FE2FC2572670C97C004DF14A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FED4E3B22668C61D00C252DB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FED4E3C3266E18A700C252DB /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionViewController.swift; sourceTree = "<group>"; };
 		FEE91797265FC11F0088D628 /* RouteTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				FEE9179E265FC11F0088D628 /* MapViewController.swift */,
+				FE2FC2572670C97C004DF14A /* LocationManager.swift */,
 				FE200CBA26679B4A00182F1A /* MainViewController.swift */,
 				FEE917A0265FC11F0088D628 /* Main.storyboard */,
 			);
@@ -550,6 +553,7 @@
 				FEE9181E26650EF20088D628 /* RealmPath.swift in Sources */,
 				FE200CAE2667956100182F1A /* LoginViewController.swift in Sources */,
 				FE200CC52667A7D900182F1A /* Helper.swift in Sources */,
+				FE2FC2582670C97C004DF14A /* LocationManager.swift in Sources */,
 				FE200CB32667993000182F1A /* RegistrationViewController.swift in Sources */,
 				FED4E3B32668C61D00C252DB /* RealmService.swift in Sources */,
 				FE200CC02667A0C300182F1A /* BaseRouter.swift in Sources */,
