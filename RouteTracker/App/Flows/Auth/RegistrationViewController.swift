@@ -10,8 +10,17 @@ import RealmSwift
 
 class RegistrationViewController: UIViewController {
     
-    @IBOutlet weak var loginView: UITextField!
-    @IBOutlet weak var passwordView: UITextField!
+    @IBOutlet weak var loginView: UITextField! {
+        didSet {
+            loginView.autocorrectionType = .no
+        }
+    }
+    @IBOutlet weak var passwordView: UITextField! {
+        didSet {
+            passwordView.autocorrectionType = .no
+            passwordView.isSecureTextEntry = true
+        }
+    }
     var service = RealmService.shared
         
     func saveUser() {
