@@ -9,6 +9,8 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class MapViewController: UIViewController {
     
@@ -17,7 +19,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var showPathButton: UIButton!
     @IBOutlet weak var startTrackingButton: UIButton!
     
-    var locationManager: CLLocationManager?
+    var locationManager = LocationManager.instance
 
     // for the current position view
     var marker: GMSMarker?
@@ -26,6 +28,8 @@ class MapViewController: UIViewController {
     var isTrackingStarted = false
     var route = GMSPolyline()
     var routePath = GMSMutablePath()
+    
+    let disposeBag = DisposeBag()
 
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -45,17 +49,8 @@ class MapViewController: UIViewController {
             )
             mapView.animate(to: position)
         } else {
-            locationManager?.requestLocation()
+            locationManager.currentLocation()
         }
-    }
-    
-    func configureLocationManager() {
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.requestAlwaysAuthorization()
     }
     
     func showCurrentLocation(position: CLLocationCoordinate2D) {
@@ -70,6 +65,31 @@ class MapViewController: UIViewController {
         marker.map = mapView
         mapView.camera = GMSCameraPosition.camera(withTarget: position, zoom: 17)
     }
+    
+    func configureLocationManager() {
+        let subscription =
+            locationManager.location
+            .subscribe({ [weak self] event in
+                guard let self = self,
+                      let location = event.element
+                else {return}
+                
+                if self.isTrackingStarted {
+                    self.routePath.add(location.coordinate)
+                    self.route.path = self.routePath
+                    debugPrint("LOCATION: Location updated, \(self.routePath.count())")
+                } else {
+                    debugPrint("LOCATION: Location updated")
+                }
+
+                let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 17)
+                self.mapView.animate(to: position)
+                
+                self.showMarker(position: location.coordinate)
+            })
+        subscription.disposed(by: disposeBag)
+    }
+
 
     func loadRoute() -> Bool {
         guard let realm = try? Realm() else {
@@ -140,8 +160,8 @@ class MapViewController: UIViewController {
                 guard let self = self else {return}
 
                 debugPrint("TRACKING: Start tracking location")
-                self.locationManager?.startMonitoringSignificantLocationChanges()
-                self.locationManager?.startUpdatingLocation()
+                self.locationManager.startMonitoringSignificantLocationChanges()
+                self.locationManager.startUpdatingLocation()
 
                 debugPrint("TRACKING: Cleanup current track points")
                 self.routePath.removeAllCoordinates()
@@ -157,8 +177,8 @@ class MapViewController: UIViewController {
                 guard let self = self else {return}
 
                 debugPrint("TRACKING: Stop tracking location")
-                self.locationManager?.stopMonitoringSignificantLocationChanges()
-                self.locationManager?.stopUpdatingLocation()
+                self.locationManager.stopMonitoringSignificantLocationChanges()
+                self.locationManager.stopUpdatingLocation()
 
                 debugPrint("TRACKING: Store track points")
                 self.saveCurrentRoute()
@@ -191,7 +211,7 @@ class MapViewController: UIViewController {
     
     @IBAction func onCurrentLocationButtonPressed(_ sender: Any) {
         debugPrint("SHOW CURRENT: Request location (once)")
-        locationManager?.requestLocation()
+        locationManager.currentLocation()
     }
     
     func showMarker(position: CLLocationCoordinate2D) {
@@ -203,25 +223,3 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-
-        if isTrackingStarted {
-            routePath.add(location.coordinate)
-            route.path = routePath
-            debugPrint("LOCATION: Location updated, \(routePath.count())")
-        } else {
-            debugPrint("LOCATION: Location updated")
-        }
-
-        showMarker(position: location.coordinate)
-
-        let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 17)
-        mapView.animate(to: position)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        debugPrint(error)
-    }
-}

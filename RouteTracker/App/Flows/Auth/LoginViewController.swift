@@ -7,9 +7,12 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var login: UIButton!
     @IBOutlet weak var loginView: UITextField!  {
         didSet {
             loginView.autocorrectionType = .no
@@ -24,6 +27,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var router: LoginRouter!
 
     var service = RealmService.shared
+    let disposeBag = DisposeBag()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        configureLoginBindings()
+
+    }
     
     @IBAction func login(_ sender: Any) {
         guard let login = loginView.text, login.isEmpty == false,
@@ -31,7 +42,6 @@ class LoginViewController: UIViewController {
             showAlertMessage("Please, enter your login and password")
             return
         }
-        
         guard
             service.checkUserAuth(login: login, password: password) == true
         else {
@@ -46,6 +56,22 @@ class LoginViewController: UIViewController {
     @IBAction func register(_ sender: Any) {
         router.toRegister()
     }
+    
+    func configureLoginBindings() {
+        Observable
+            .combineLatest(
+                loginView.rx.text,
+                passwordView.rx.text
+            )
+            .map { login, password in
+                return !(login ?? "").isEmpty && (password ?? "").count >= 1
+            }
+            .bind { [weak login] inputFilled in
+                login?.isEnabled = inputFilled
+            }
+            .disposed(by: disposeBag)
+    }
+
     
 }
 

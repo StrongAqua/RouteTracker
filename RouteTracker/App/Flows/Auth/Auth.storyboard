@@ -132,6 +132,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="login" destination="2KM-Ac-2nY" id="UcB-qM-L8A"/>
                         <outlet property="loginView" destination="47Q-NC-hP8" id="19q-iA-TLh"/>
                         <outlet property="passwordView" destination="Vvf-n6-c6e" id="EEa-pR-PBS"/>
                         <outlet property="router" destination="CLC-A5-dNC" id="gZ3-jC-6gD"/>
