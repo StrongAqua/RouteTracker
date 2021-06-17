@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard granted else {
+                print("Permission not received")
+                return
+            }
+
+            self.sendNotificationRequest(
+                content: self.makeNotificationContent(),
+                trigger: self.makeIntervalNotificationTrigger()
+            )
+        }
+        
         
         GMSServices.provideAPIKey("AIzaSyDXkBVVNj7An-SSiz2ap51E3KTA6QNliSg")
         
@@ -30,6 +45,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func makeNotificationContent() -> UNNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.title = "Route Tracker"
+        content.subtitle = "Сome back soon!"
+        content.body = "Let's go on a trip!"
+        content.badge = 1
+        return content
+    }
+    
+    func makeIntervalNotificationTrigger() -> UNNotificationTrigger {
+        return UNTimeIntervalNotificationTrigger(
+            timeInterval: 1800,
+            repeats: true
+        )
+    }
+    
+    func sendNotificationRequest(
+        content: UNNotificationContent,
+        trigger: UNNotificationTrigger) {
+        
+        let request = UNNotificationRequest(
+            identifier: "alarm",
+            content: content,
+            trigger: trigger
+        )
+        
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            }
+        }
     }
     
     func getCurrentViewController() -> (UIViewController?, UINavigationController?) {
@@ -57,6 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             privacyVC.dismiss(animated: false)
         }
 
+        // BadgeCountHolder.instance.badgeCount = 0
+
         UserDefaults.standard.set(false, forKey: "isLogin")
         let controller = UIStoryboard(name: "Auth", bundle: nil)
             .instantiateViewController(LoginViewController.self)
@@ -66,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         let (currentController, nc) = getCurrentViewController()
         if currentController as? LoginViewController == nil &&
-           currentController as? RegistrationViewController == nil,
+            currentController as? RegistrationViewController == nil,
            let nc = nc
         {
             privacyVC = PrivacyProtectionViewController()
